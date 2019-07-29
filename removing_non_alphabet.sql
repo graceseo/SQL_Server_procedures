@@ -6,7 +6,7 @@ Begin
 *Create by: Gyeonglim Seo
 *Date : 2019.07.19
 *Description: It removes special characters in columns
-*Causion: !!Never use it without the where clause or over 1000 rows !!! 
+*Caution: !!Never use it without the where clause or over 1000 rows !!! 
 */
     Declare @KeepValues as varchar(50)
     Set @KeepValues = '%[^a-z]%'
