@@ -1,1 +1,0 @@
-# SQL_server_procedure
