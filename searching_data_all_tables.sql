@@ -4,7 +4,7 @@ begin
 /**
 * Created by : Gyeonglim Seo
 * Date: 2019.07.29
-* Description: Searching data for building reports in PowerInsight. It's imported from an excel file.
+* Description: Searching classes for building reports in PowerInsight. It's imported from an excel file.
 */
 	declare @select_string nvarchar(1000); 
 	declare @result_string nvarchar(3000);
@@ -12,7 +12,7 @@ begin
 	declare @table_count int; -- this variable stores the total number of tables for finding the last rows of a cursor
 	declare @cursor_count int;-- this variable counts rows of cusor for comparing with table_count
 
-	-- Those two varibles should be initialized in global area
+	-- Those two varibles should be initialized  in global area
 	set @result_string=''; 
 	set @cursor_count=0;
 
@@ -20,7 +20,7 @@ begin
 	select @table_count=count(*) from INFORMATION_SCHEMA.TABLES where table_name like 'Powerinsight%'
 
 	declare table_cursor cursor for 
-		select 'select * from '+table_name+
+		select 'select universe, root_class, class, objectName, def, '''+table_name+''' as tableName from '+table_name+
 		' where def like ''%'+@words+'%'' or objectName  like ''%'+@words+'%''' 
 		from INFORMATION_SCHEMA.TABLES
 		where table_name like 'Powerinsight%'
