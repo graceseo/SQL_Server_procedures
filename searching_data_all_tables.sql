@@ -4,7 +4,7 @@ begin
 /**
 * Created by : Gyeonglim Seo
 * Date: 2019.07.29
-* Description: Searching classes for building reports in PowerInsight. It's imported from an excel file.
+* Description: search specific tables and columns by name.
 */
 	declare @select_string nvarchar(1000); 
 	declare @result_string nvarchar(3000);
